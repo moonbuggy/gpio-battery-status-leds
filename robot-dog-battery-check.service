@@ -1,0 +1,14 @@
+[Unit]
+Description=Freenove Robot Dog battery status LEDs
+After=robot-dog-server.service
+BindsTo=robot-dog-server.service
+
+[Service]
+Type=notify
+Restart=on-failure
+User=root
+Environment=PYTHONUNBUFFERED=true
+ExecStart=/usr/bin/python3 /usr/local/bin/check_battery.py
+
+[Install]
+WantedBy=multi-user.target
