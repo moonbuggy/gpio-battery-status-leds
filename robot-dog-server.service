@@ -1,0 +1,13 @@
+[Unit]
+Description=Freenove Robot Dog Server
+After=network.target
+
+[Service]
+Type=exec
+Restart=on-failure
+User=root
+WorkingDirectory=<FREENOVE_PATH>Freenove_Robot_Dog_Kit_for_Raspberry_Pi/Code/Server/
+ExecStart=/usr/bin/python3 main.py -t -n
+
+[Install]
+WantedBy=multi-user.target
